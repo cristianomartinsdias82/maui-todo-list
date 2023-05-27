@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8C88A377-2C4C-4FFC-992C-C16C671F00EC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "hosts", "hosts", "{3B3AC840-517F-4CA4-BE3A-DB8DD7753D8C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "clients", "clients", "{EEDDCBF7-65D1-41C7-9482-1B234AE1E509}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoApi", "hosts\ToDoApi\ToDoApi.csproj", "{FED94D7F-C4B7-437D-9D68-0F6CBBFD4A01}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FED94D7F-C4B7-437D-9D68-0F6CBBFD4A01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FED94D7F-C4B7-437D-9D68-0F6CBBFD4A01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FED94D7F-C4B7-437D-9D68-0F6CBBFD4A01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FED94D7F-C4B7-437D-9D68-0F6CBBFD4A01}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3B3AC840-517F-4CA4-BE3A-DB8DD7753D8C} = {8C88A377-2C4C-4FFC-992C-C16C671F00EC}
+		{EEDDCBF7-65D1-41C7-9482-1B234AE1E509} = {8C88A377-2C4C-4FFC-992C-C16C671F00EC}
+		{FED94D7F-C4B7-437D-9D68-0F6CBBFD4A01} = {3B3AC840-517F-4CA4-BE3A-DB8DD7753D8C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3BF889FE-EA15-44F1-979E-147A10C2CDE8}
+	EndGlobalSection
+EndGlobal
