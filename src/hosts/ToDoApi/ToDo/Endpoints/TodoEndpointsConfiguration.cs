@@ -1,13 +1,10 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.EntityFrameworkCore;
-using System.Net;
-using ToDoApi.ToDo.Models;
+﻿using Microsoft.EntityFrameworkCore;
 using ToDoApi.ToDo.Persistence;
 using ToDoApi.ToDo.ViewModels;
 
 namespace ToDoApi.ToDo.Endpoints;
 
-public static class TodoEndpointsConfiguration
+public static class ToDoEndpointsConfiguration
 {
     private const string ToDoApiRouteBase = "api/todo";
 

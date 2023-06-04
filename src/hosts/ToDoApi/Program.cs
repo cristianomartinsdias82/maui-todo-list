@@ -21,6 +21,6 @@ if (app.Environment.IsDevelopment())
 
 //app.UseHttpsRedirection();
 
-TodoEndpointsConfiguration.Configure(app);
+ToDoEndpointsConfiguration.Configure(app);
 
 app.Run();
