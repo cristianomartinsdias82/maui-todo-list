@@ -7,6 +7,7 @@ namespace ToDoApiServiceClient
     {
         private readonly HttpClient _httpClient;
         private readonly JsonSerializerOptions? _serializerOptions;
+        private const string ApiRoute = "api/todo";
 
         public ToDoServiceClient(
             HttpClient httpClient,
@@ -18,20 +19,20 @@ namespace ToDoApiServiceClient
 
         public async Task<Guid?> AddAsync(ToDo toDo, CancellationToken cancellationToken = default)
         {
-            var result = await _httpClient.PostAsJsonAsync(string.Empty, toDo, _serializerOptions, cancellationToken);
+            var result = await _httpClient.PostAsJsonAsync(ApiRoute, toDo, _serializerOptions, cancellationToken);
 
             result.EnsureSuccessStatusCode();
 
             var contentResult = await result.Content.ReadAsStringAsync(cancellationToken);
 
-            var successfullySavedToDo = JsonSerializer.Deserialize<ToDo>(contentResult);
+            var successfullySavedToDo = JsonSerializer.Deserialize<ToDo>(contentResult, _serializerOptions);
 
             return successfullySavedToDo!.Id;
         }
 
         public async Task<ListToDoResult> GetAsync(CancellationToken cancellationToken = default)
         {
-            var result = await _httpClient.GetAsync(string.Empty, cancellationToken);
+            var result = await _httpClient.GetAsync(ApiRoute, cancellationToken);
 
             result.EnsureSuccessStatusCode();
 
@@ -44,7 +45,7 @@ namespace ToDoApiServiceClient
 
         public async Task<bool> RemoveAsync(Guid id, CancellationToken cancellationToken = default)
         {
-            var result = await _httpClient.DeleteAsync(id.ToString(), cancellationToken);
+            var result = await _httpClient.DeleteAsync($"{ApiRoute}/{id}", cancellationToken);
 
             result.EnsureSuccessStatusCode();
 
@@ -53,7 +54,7 @@ namespace ToDoApiServiceClient
 
         public async Task<bool> UpdateAsync(ToDo toDo, CancellationToken cancellationToken = default)
         {
-            var result = await _httpClient.PutAsJsonAsync(toDo.Id.ToString(), toDo, _serializerOptions, cancellationToken);
+            var result = await _httpClient.PutAsJsonAsync($"{ApiRoute}/{toDo.Id}", toDo, _serializerOptions, cancellationToken);
 
             result.EnsureSuccessStatusCode();
 
