@@ -9,24 +9,15 @@ namespace ToDoApiServiceClient.Configuration
         public static IServiceCollection AddToDoApiServiceClient(
             this IServiceCollection services,
             Action<HttpClient> configureClient,
-            JsonSerializerOptions? options = default/*,
-            ServiceLifetime lifetime = ServiceLifetime.Singleton*/)
+            JsonSerializerOptions? options = default)
         {
             ArgumentNullException.ThrowIfNull(configureClient);
 
             services.AddHttpClient<IToDoServiceClient, ToDoServiceClient>(configureClient);
             if (options is not null)
-                services.TryAddTransient(serviceProvider => options);
+                services.TryAddSingleton(serviceProvider => options);
 
             return services;
-
-            //return lifetime switch
-            //{
-            //    ServiceLifetime.Singleton => services.AddSingleton<IToDoServiceClient, ToDoServiceClient>(),
-            //    ServiceLifetime.Scoped => services.AddScoped<IToDoServiceClient, ToDoServiceClient>(),
-            //    ServiceLifetime.Transient => services.AddTransient<IToDoServiceClient, ToDoServiceClient>(),
-            //    _ => throw new ArgumentException("Invalid lifetime argument!")
-            //};
         }
     }
 }
