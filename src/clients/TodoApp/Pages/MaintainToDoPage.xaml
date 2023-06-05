@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TodoApp.Pages.MaintainToDoPage"
+             Title="To dos">
+    <Grid RowDefinitions="*, Auto" ColumnDefinitions="*,*,*" ColumnSpacing="5">
+        <TableView Intent="Data" Grid.Row="0" Grid.ColumnSpan="3">
+            <TableRoot>
+                <TableSection Title="New task? Add it here!">
+                    <EntryCell Text="{Binding Path=ToDo.Title}" Placeholder="Title" />
+                    <EntryCell Text="{Binding Path=ToDo.Details}" Placeholder="Description" />
+                    <SwitchCell Text="Done" On="{Binding Path=ToDo.Done}"></SwitchCell>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+        <Button
+            Margin="5,0,0,5"
+            Grid.Row="1"
+            Grid.Column="0"
+            Clicked="OnSaveButtonClicked"
+            Text="Save" />
+
+        <Button
+            Margin="5,0,5,5"
+            Grid.Row="1"
+            Grid.Column="1"
+            Clicked="OnDeleteButtonClicked"
+            x:Name="deleteButton"
+            Text="Remove" />
+
+        <Button
+            Margin="5,0,5,5"
+            Grid.Row="1"
+            Grid.Column="2"
+            Clicked="OnCancelButtonClicked"
+            Text="Cancel" />
+    </Grid>
+
+</ContentPage>
